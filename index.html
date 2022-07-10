@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Carrousel CSS </title>
+    <link rel="stylesheet" href="index.scss"> </link>
+</head>
+<body>
+    <div
+  class="carousel"
+  role="region"
+  aria-label="gallery"
+  x-data="carousel"
+>
+  <div class="relative">
+    <!-- controls -->
+    <ul aria-label="gallery controls" role="list">	
+      <li>
+        <button class="arrow arrow--prev" @click="go('prev')">
+          <div class="sr-only">Previous</div>
+          <svg height="13" width="13" aria-hidden="true" fill="none" viewBox="0 0 6 10" xmlns="http://www.w3.org/2000/svg"><path d="M5 9.4.6 5 5 .6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </li>
+      <li>
+        <button class="arrow arrow--next" @click="go('next')">
+          <div class="sr-only">Next</div>
+          <svg height="13" width="13" aria-hidden="true" fill="none" viewBox="0 0 6 10" xmlns="http://www.w3.org/2000/svg"><path d="M1 .6 5.4 5 1 9.4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </li>
+    </ul>
+
+    <!-- carousel scroller -->
+    <ul
+        class="carousel__scroll"
+        :class="{
+          'carousel__scroll--active': momentum.active,
+          'carousel__scroll--dragging': momentum.dragging
+        }"
+        role="list"
+        tabindex="0"
+        aria-label="gallery images"
+    >
+      <li class="carousel__slide">
+        <img class="image" src="https://source.unsplash.com/ePpaQC2c1xA/700x700/" width="700" height="700" alt="" loading="lazy" decoding="async">
+      </li>
+      <li class="carousel__slide">
+        <img class="image" src="https://source.unsplash.com/phIFdC6lA4E/700x700/" width="700" height="700" alt="" loading="lazy" decoding="async">
+      </li>
+      <li class="carousel__slide">
+        <img class="image" src="https://source.unsplash.com/9wg5jCEPBsw/700x700/" width="700" height="700" alt="" loading="lazy" decoding="async">
+      </li>
+      <li class="carousel__slide">
+        <img class="image" src="https://source.unsplash.com/g30P1zcOzXo/700x700/" width="700" height="700" alt="" loading="lazy" decoding="async">
+      </li>
+      <li class="carousel__slide">
+        <img class="image" src="https://source.unsplash.com/73F4pKoUkM0/700x700/" width="700" height="700" alt="" loading="lazy" decoding="async">
+      </li>
+    </ul>
+  </div>
+
+  <ul class="pagination" role="list" aria-label="pagination">
+    <li>
+      <button
+        class="pagination__item"
+        @click="go(0)"
+        :aria-pressed="(index === 0).toString()"
+      >
+        <div class="sr-only">go to page 1 of 1</div>
+        <img src="https://source.unsplash.com/ePpaQC2c1xA/40x40/" width="40" height="40" alt="" loading="lazy" decoding="async">
+      </button>
+    </li>
+    <li>
+      <button
+        class="pagination__item"
+        @click="go(1)"
+        :aria-pressed="(index === 1).toString()"
+      >
+        <div class="sr-only">go to slide 2 of 5</div>
+        <img src="https://source.unsplash.com/phIFdC6lA4E/40x40/" width="40" height="40" alt="" loading="lazy" decoding="async">
+      </button>
+    </li>
+    <li>
+      <button
+        class="pagination__item"
+        @click="go(2)"
+        :aria-pressed="(index === 2).toString()"
+      >
+        <div class="sr-only">go to slide 3 of 5</div>
+        <img src="https://source.unsplash.com/9wg5jCEPBsw/40x40/" width="40" height="40" alt="" loading="lazy" decoding="async">
+      </button>
+    </li>
+    <li>
+      <button
+        class="pagination__item"
+        @click="go(3)"
+        :aria-pressed="(index === 3).toString()"
+      >
+        <div class="sr-only">go to slide 4 of 5</div>
+        <img src="https://source.unsplash.com/g30P1zcOzXo/40x40/" width="40" height="40" alt="" loading="lazy" decoding="async">
+      </button>
+    </li>
+    <li>
+      <button
+        class="pagination__item"
+        @click="go(4)"
+        :aria-pressed="(index === 4).toString()"
+      >
+        <div class="sr-only">go to slide 5 of 5</div>
+        <img src="https://source.unsplash.com/73F4pKoUkM0/40x40/" width="40" height="40" alt="" loading="lazy" decoding="async">
+      </button>
+    </li>
+  </ul>
+</div>
+</body>
+<script href="index.js" type="text/javascript" ></script>
+</html>

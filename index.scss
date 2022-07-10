@@ -1,0 +1,124 @@
+.carousel {
+    position: relative;
+    
+    scroll {
+      display: flex;
+      gap: 1rem;
+      overflow: auto;
+          cursor: grab;
+          -webkit-overflow-scrolling: touch;
+          scroll-snap-type: x mandatory;
+          scroll-behavior: smooth;
+          user-select: none;
+      background: #f8f8f8;
+  
+          &--active {
+              scroll-snap-type: unset;
+              scroll-behavior: unset;
+          }
+  
+          &--dragging {
+              cursor: grabbing;
+          }
+  
+          // hide scrollbars
+          scrollbar-width: none;
+  
+          &::-webkit-scrollbar {
+              display: none;
+          }
+    }
+    
+    &__slide {
+          scroll-snap-align: center;
+      width: 100%;
+      flex-shrink: 0;
+    }
+  }
+  
+  .arrow {
+    position: absolute;
+    top: calc(50% - 1rem);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 2rem;
+    height: 2rem;
+    
+    border-radius: 1rem;
+    background: rgb(154, 63, 32);
+    color: #fff;
+    
+    &--prev {
+      left: -1rem;
+    }
+    
+    &--next {
+      right: -1rem;
+    }
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    margin-top: 1rem;
+    
+    &__item {
+      padding: .5rem;
+      border: 1px solid transparent;
+      transition: border-color .2s;
+      
+      &[aria-pressed="true"] {
+        border-color: #000;
+      }
+    }
+  }
+  
+  /**
+   * misc
+   */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  .relative {
+    position: relative;
+  }
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    max-width: 30rem;
+    padding: 2rem;
+    margin: 0 auto;
+    font-family: system-ui;
+  }
+  
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  button {
+    appearance: none;
+    cursor: pointer;
+    border: 0;
+    padding: 0;
+  }
